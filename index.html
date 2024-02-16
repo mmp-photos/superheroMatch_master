@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Superhero Match</title>
+    <meta name="SuperHero Match" content="A memory game.  Click each card to reveal a superhero, then find the matching card.">
+    <script src="https://kit.fontawesome.com/dabb5ec09e.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">    <link rel="stylesheet" href="https://use.typekit.net/gof3kfm.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<!-- Begin HTML Body -->
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <header>
+            <div class="col-4">
+                <h1>Superhero Match!</h1>
+            </div>
+            <div class="col all-center">
+                Cards: <span id="selected-deck">Deck Selected</span>
+            </div>
+            <div class="col all-center">
+                <div class="current-rate">
+                    <div class="counter"></div>
+                    Moves: <span class="moves">0</span>
+                </div>
+            </div>
+            <div class="col all-center">
+                <div class="timer">Time: <span class="displayTime">00:00</span></div>
+            </div>
+            <div class="col all-center">
+                <button>
+                    <i class="restart fa-solid fa-rotate-right orange fa-xl"></i>
+                </button>
+            </div>
+        </header>
+    </div>
+
+    <!-- Begin deck section -->
+    <div class="row">
+        <div class="col primary-content">
+            <ul class="deck hide" id="card-deck">
+                <li class="card" >
+                    <i class="fa fa-diamond"></i>
+                </li>
+                <li class="card">
+                    <i class="fa fa-paper-plane-o"></i>
+                </li>
+                <li class="card">
+                    <i class="fa fa-anchor"></i>
+                </li>
+                
+                <li class="card">
+                    <i class="fa fa-bolt"></i>
+                </li>
+                <li class="card">
+                    <i class="fa fa-cube"></i>
+                </li>
+                <li class="card">
+                    <i class="fa fa-anchor"></i>
+                </li>
+                
+                <li class="card">
+                    <i class="fa fa-leaf"></i>
+                </li>
+                <li class="card">
+                    <i class="fa fa-bicycle"></i>
+                </li>
+                <li class="card">
+                    <i class="fa fa-diamond"></i>
+                </li>
+                
+                <li class="card">
+                    <i class="fa fa-bomb"></i>
+                </li>
+                <li class="card">
+                    <i class="fa fa-leaf"></i>
+                </li>
+                <li class="card">
+                    <i class="fa fa-bomb"></i>
+                </li>
+                
+                <li class="card">
+                    <i class="fa fa-bolt"></i>
+                </li>
+                <li class="card">
+                    <i class="fa fa-bicycle"></i>
+                </li>
+                <li class="card">
+                    <i class="fa fa-paper-plane-o"></i>
+                </li>
+                <li class="card">
+
+                    <i class="fa fa-cube"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!--panel that will be show when you finish the game-->
+    <section id="result" class="pop-up hide">
+        <div id="congrats" class="result hide">
+            <h2>Congratulations!</h2>
+            <p>You needed <span id="fin-moves">0</span> moves to finish the game</p>
+            <p>Your time is <span id="fin-time">00.00</span>.</p>
+            <p class="fin-stars hide">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+            </p>
+            <img class="cup cup-bronze hide" src="images/avengers.png" alt="cup-bronze">
+            <img class="cup cup-silver hide" src="images/avengers.png" alt="cup-silver">
+            <img class="cup cup-gold hide" src="images/avengers.png" alt="cup-gold">
+            <p class="hide">Score: <span id="fin-score"></span></p>
+            <!-- <form class="print-your-name">
+                <input id="input-name" type="text" placeholder="Enter your name here">
+                <input id="btn-submit" class="btn" type="submit" value="Submit!">
+            </form> -->
+            <button onclick="selectDeck()">
+                Select <br/>
+                New Deck
+            </button>
+            <button class="comic-bubblex" onclick="gameStart()">
+                Restart
+            </button>
+        </div>
+
+    </section>
+
+    <!-- Deck Selector -->
+    <section id="deck-modal" class="pop-up">
+        <div>
+            <div id="deck-selector" class="hide">
+                <button class="close orange" onclick="switchDeck('girlPower')"><i class="fa-regular fa-rectangle-xmark"></i></button>
+                <h2>Choose Your Heroes!</h2>
+                <ul>
+                    <li><img class="select-deck" onclick="switchDeck('batman')" src="images/batman.png" /></li>
+                    <li><img class="select-deck" onclick="switchDeck('justiceLeague')" src="images/justice-league.png" /></li>
+                    <li><img class="select-deck" onclick="switchDeck('avengers')"src="images/avengers.png" /></li>
+                    <li><img class="select-deck" onclick="switchDeck('xmen')" src="images/xmen.png" /></li>
+                    <li><img class="select-deck" onclick="switchDeck('legionOfDoom')" src="images/legion-of-doom.png" /></li>
+                    <li><img class="select-deck" onclick="switchDeck('roguesGallery')" src="images/rogues_gallery.svg" /></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+<!--footer with links-->
+<div class="row">
+    <div class="col">
+        <footer>
+            <p class="copyright">adapted from Laura Enria 2018. <i class="fa fa-copyright" aria-hidden="true"></i>All Rights Reserved</p>
+            </div>
+        </footer>
+    </div>
+</div>
+</div>
+
+<script src="./js/index.js"></script>
+</body>
+</html>

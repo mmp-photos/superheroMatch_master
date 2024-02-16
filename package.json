@@ -1,0 +1,47 @@
+{
+  "name": "matching-game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "lite": "lite-server",
+    "scss": "sass css:css",
+    "scss-build": "sass css:dist/css",
+    "start": "npm run watch:all",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:scss": "onchange 'css/*.scss' -- npm run scss",
+    "watch:all": "parallelshell 'npm run watch:scss' 'npm run lite'",
+    "clean": "rimraf dist",
+    "copyfonts": "copyfiles -f node_modules/font-awesome/fonts/* dist/fonts",
+    "copyjs": "copyfiles js/*.js dist/",
+    "imagemin": "imagemin images/* -o dist/images",
+    "usemin": "usemin index.html -d dist --htmlmin -o dist/index.html",
+    "outputcss": "sass css/*.scss",
+    "build": "npm run clean && npm run imagemin && npm run copyfonts && npm run usemin && npm run scss-build && npm run copyjs"
+  },
+  "author": "Matthew Mayer",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "babel-loader": "^9.1.2",
+    "copyfiles": "^2.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "imagemin-cli": "^7.0.0",
+    "lite-server": "^2.6.1",
+    "onchange": "^7.0.0",
+    "parallelshell": "3.0.1",
+    "rimraf": "^3.0.2",
+    "sass": "^1.54.0",
+    "usemin-cli": "^0.0.7",
+    "webpack": "^5.76.3",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.0-alpha1",
+    "bootstrap-social": "^5.1.1",
+    "font-awesome": "^4.7.0",
+    "http-proxy-middleware": "^2.0.6",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
+  }
+}
