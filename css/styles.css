@@ -377,8 +377,16 @@ footer .social {
     height: 100%;
   }
 }
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    margin-opacity: 1;
+  }
+}
 .swipe-up {
-  animation: 1s slide-up;
+  animation: .2s slide-up, fade-in 1.5s;
 }
 
 #getHeroCards.hideImage > img {
